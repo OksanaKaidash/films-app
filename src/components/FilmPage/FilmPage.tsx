@@ -31,7 +31,6 @@ const FilmPage: FC<FilmPageProps> = () => {
       return <FilmsItem key={index}
               id={film.id}
               title={film.title}
-              overview={film.overview}
               poster={film.poster_path}
               date={film.release_date}
               rating={film.vote_average}

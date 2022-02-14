@@ -52,7 +52,6 @@ const FilmsList: FC<FilmsListProps> = () => {
     return <FilmsItem  key={i}
                       id={film.id}
                       title={film.title}
-                      overview={film.overview}
                       poster={film.poster_path}
                       date={film.release_date}
                       rating={film.vote_average}

@@ -6,7 +6,6 @@ import { useDispatch, useSelector } from "react-redux";
 
 interface FilmsItemProps {
   title: string;
-  overview: string;
   poster: string;
   date: number;
   rating: number;
@@ -15,7 +14,7 @@ interface FilmsItemProps {
 }
 
 const FilmsItem: FC<FilmsItemProps> = (props: any) => {
-  const { title, poster, overview, date, rating, id, genreId} = props;
+  const { title, poster,  date, rating, id, genreId} = props;
   const urlPoster = process.env.REACT_APP_URL_POSTER;
   const dicpatch = useDispatch();
 
