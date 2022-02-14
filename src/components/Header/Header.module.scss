@@ -1,0 +1,69 @@
+.Header {
+  display: flex;
+  justify-content: space-between;
+  height: 3rem;
+  align-items: center;
+  background: #070707;
+  padding: 0 5rem;
+  margin: 1rem 0;
+
+  .headerLink {
+    display: flex;
+    justify-content: flex-start;
+    gap: 2rem;
+
+    a {
+      color: beige;
+    }
+
+    :link {
+      text-decoration: none;
+      font-size: larger;
+      font-weight: bold;
+    }
+  }
+ 
+  .searchForm {
+    display: flex;
+
+    .inputSearch {
+      outline: none;
+      border: none;
+      height: 30px;
+      border-radius: 5px 0px 0px 5px;
+    }
+
+    .btnSearch {
+      height: 30px;
+      width: 30px;
+      border: none;
+      border-radius: 0px 5px 5px 0px;
+      overflow: none;
+    }
+
+    .spanSearch {
+      display: inline-block;
+      transform: rotate(90deg);
+      font-weight: bold;
+      font-size: 16px;
+    }
+  }
+}
+
+@media (max-width: 820px) {
+  .Header {
+     
+    .headerLink {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 5px;
+    }
+  }
+}
+
+@media (max-width: 425px) {
+  .Header {
+     flex-direction: column;
+     height: 5.5rem;
+  }
+}

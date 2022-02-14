@@ -1,57 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
-import './App.css';
+import {useState, useEffect} from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "./App.scss";
+import { useSelector } from "react-redux";
+import FilmPage from "./components/FilmPage/FilmPage";
+import FilmsList from "./components/FilmsList/FilmsList";
+import Header from "./components/Header/Header";
+import SelectedFilms from "./components/SelectedFilms/SelectedFilms";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
-    </div>
+  const  selectedFilm: any = useSelector( (state: any) => state.films.selectedFilms);
+    
+  let local: any = localStorage.getItem('likeFilms');
+  let localParse = JSON.parse(local);
+  
+  const [likeFilms, setLikeFilms] : any = useState(localParse || []);
+  
+  useEffect(() => {
+    setLikeFilms([...selectedFilm]);
+  }, [selectedFilm]);
+
+  useEffect(() => {
+    localStorage.setItem('likeFilms', JSON.stringify(likeFilms));
+   }, [likeFilms]);
+    
+   return (
+    <BrowserRouter>
+      <Header /> 
+      <Routes>
+        <Route path="/" element={<FilmsList />} />
+        <Route path="/Selected_Films" element={<SelectedFilms likeFilms={likeFilms} />} />
+        <Route path="/films/:id" element={<FilmPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
