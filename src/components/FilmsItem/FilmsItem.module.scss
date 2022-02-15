@@ -58,17 +58,27 @@
 }
 
 .noLike {
+  color: white; 
   position: absolute;
   right: 10px;
   bottom: 5px;
   cursor: pointer;
-  color: white;
+  border: 1px;
+  width: 17px;
+  height: 20px;
+  border-radius: 2px;
+  background: rgb(39, 39, 39);
 }
 
 .Like {
+  color: rgb(238, 4, 4);
   position: absolute;
   right: 10px;
   bottom: 5px;
   cursor: pointer;
-  color: rgb(238, 4, 4);
+  border: 1px;
+  width: 17px;
+  height: 20px;
+  border-radius: 2px;
+  background: rgb(39, 39, 39);
 }

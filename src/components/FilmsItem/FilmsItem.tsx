@@ -55,9 +55,9 @@ const FilmsItem: FC<FilmsItemProps> = (props: any) => {
           </div>
         </div>
       </Link>
-      <div onClick={likeFilm} className={`${isClass ? styles.Like : styles.noLike}`}>
+      <button onClick={likeFilm} className={`${isClass ? styles.Like : styles.noLike}`}>
         &#10084;
-      </div>
+      </button>
     </div>
   );
 };
