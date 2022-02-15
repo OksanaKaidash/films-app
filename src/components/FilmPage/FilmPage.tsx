@@ -20,7 +20,7 @@ const FilmPage: FC<FilmPageProps> = () => {
   const recommendations = useSelector(
     (state: any) => state.films.recommendations
   );
-
+  
   useEffect(() => {
     dispatch(fetchFilmPersonalPage(id));
     dispatch(fetchRecommendations(id));
@@ -47,15 +47,15 @@ const FilmPage: FC<FilmPageProps> = () => {
           height={400}
           src={`${urlPosterPage}${info?.poster_path}`}
           alt="img"
-        />
+        /> 
         <img className={styles.backdrop_path}
           width={550}
           height={400}
           src={`${urlPosterPage}${info?.backdrop_path}`}
           alt="img"
         />
-      </div>
-      <h1>{info?.title}</h1>
+      </div>    
+      <h1 className={styles.title}>{info?.title}</h1>
       <p>({new Date(info?.release_date).getFullYear()})</p>
       <div className={styles.filmPageInfo}>
         <p>

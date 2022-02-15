@@ -40,6 +40,11 @@
     margin: 1rem 0;
 }
 
+.title {
+    position: relative;
+}
+
+
 @media (max-width: 820px) {
    .backdrop_path {
        display: none;

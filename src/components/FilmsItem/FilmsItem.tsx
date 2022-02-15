@@ -3,6 +3,7 @@ import styles from "./FilmsItem.module.scss";
 import { Link } from "react-router-dom";
 import { formPageSelectedFilms } from "../../app/reducers/films.reducer";
 import { useDispatch, useSelector } from "react-redux";
+import Button from "../Button/Button";
 
 interface FilmsItemProps {
   title: string;
@@ -16,10 +17,10 @@ interface FilmsItemProps {
 const FilmsItem: FC<FilmsItemProps> = (props: any) => {
   const { title, poster,  date, rating, id, genreId} = props;
   const urlPoster = process.env.REACT_APP_URL_POSTER;
-  const dicpatch = useDispatch();
+ 
 
   const genre: any = useSelector( (state: any) => state.films.genre);
-  const [isClass, setIsClass] = useState(false);
+  
    
    
   const genreFilms = genre.filter( (i: any) => {
@@ -29,12 +30,7 @@ const FilmsItem: FC<FilmsItemProps> = (props: any) => {
         }
     });
   });
-
-  const likeFilm = () => {
-    dicpatch(formPageSelectedFilms(props));   
-    setIsClass(isClass === false? true : false);
-  };
-
+  
   return (
     <div className={styles.filmForm}>
       <Link to={`/films/${id}`}>
@@ -55,9 +51,14 @@ const FilmsItem: FC<FilmsItemProps> = (props: any) => {
           </div>
         </div>
       </Link>
-      <button onClick={likeFilm} className={`${isClass ? styles.Like : styles.noLike}`}>
-        &#10084;
-      </button>
+      <div className={styles.btn}>
+        <Button  title ={title}
+               poster = {poster}
+               date = {date}
+               rating = {rating}
+               id = {id}
+               genreId = { genreId} />
+      </div>
     </div>
   );
 };
